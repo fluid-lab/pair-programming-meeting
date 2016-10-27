@@ -2,7 +2,7 @@
 
 ## Relevant Files in This Repo
 
-- `browser-sync.sh`: a [Browsersync)[https://www.browsersync.io/] script to launch a server on port 3002, watch the file system for changes and reload the page if changes are detected (saves a lot of CTRL-R).
+- `browser-sync.sh`: a [Browsersync](https://www.browsersync.io/) script to launch a server on port 3002, watch the file system for changes and reload the page if changes are detected (saves a lot of CTRL-R).
 
 - `index.html`: basic page that currently just embeds a map.
 
