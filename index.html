@@ -1,0 +1,30 @@
+<html>
+<head>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="src/js/lib/leaflet/leaflet.css" />
+    <script src="src/js/lib/leaflet/leaflet.js"></script>
+
+    <!-- Infusion -->
+    <script src="src/js/lib/infusion/infusion-all.js"></script>
+    <script src="src/js/leaflet-infusion.js"></script>
+
+</head>
+
+<body>
+    <div class="mapContainer">
+        <div class="mapPanel"></div>
+    </div>
+
+<script>
+
+$(document).ready( function() {
+    fluid.leaflet.map(".mapContainer", {
+            });
+});
+</script>
+
+
+</body>
+
+</html>
