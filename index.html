@@ -7,19 +7,25 @@
 
     <!-- Infusion -->
     <script src="src/js/lib/infusion/infusion-all.js"></script>
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="src/css/lib/normalize.css" />
+
+    <!-- Project files -->
+    <link rel="stylesheet" href="src/css/leaflet-infusion.css" />
     <script src="src/js/leaflet-infusion.js"></script>
 
 </head>
 
 <body>
-    <div class="mapContainer">
-        <div class="mapPanel"></div>
+    <h1>Campus Map</h1>
+    <div class="flc-mapContainer">
+        <div class="flc-mapPanel"></div>
     </div>
-
 <script>
 
 $(document).ready( function() {
-    fluid.leaflet.map(".mapContainer", {
+    fluid.leaflet.map(".flc-mapContainer", {
             });
 });
 </script>

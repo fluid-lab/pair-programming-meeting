@@ -1,15 +1,11 @@
 fluid.defaults("fluid.leaflet.map", {
        gradeNames: ["fluid.viewComponent"],
-       mapPanelOptions: {
-           height: "500px",
-           width: "500px"
-       },
        tileOptions: {
            url: "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
            attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"http://cartodb.com/attributions\">CartoDB"
        },
        selectors: {
-           mapPanel: ".mapPanel"
+           mapPanel: ".flc-mapPanel"
        },
        invokers: {
            initializeMapPanel: {
@@ -23,13 +19,8 @@ fluid.defaults("fluid.leaflet.map", {
        },
        listeners: {
            "onCreate.initializeMapPanel": {
-               funcName: "{that}.initializeMapPanel",
-               priority: "first"
-           }//,
-           // "onCreate.panMap": {
-           //     funcName: "{that}.panTo",
-           //     args: [[43.6438, -79.5654], {animate: true, duration: 2}]
-           // }
+               funcName: "{that}.initializeMapPanel"
+           }
        },
        events: {
            "onMapReady": null
@@ -38,13 +29,7 @@ fluid.defaults("fluid.leaflet.map", {
 
 fluid.leaflet.map.initializeMapPanel = function (that) {
    var mapPanel = that.locate("mapPanel"),
-       mapPanelOptions = that.options.mapPanelOptions,
        tileOptions = that.options.tileOptions;
-
-   mapPanel.css({
-       "height": mapPanelOptions.height,
-       "width": mapPanelOptions.width,
-   });
 
    var mapPanelId = fluid.allocateSimpleId(mapPanel);
 

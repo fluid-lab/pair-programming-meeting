@@ -1,0 +1,13 @@
+body {
+    padding: 1em;
+}
+
+.flc-mapContainer {
+
+}
+
+.flc-mapPanel {
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+}
