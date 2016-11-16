@@ -8,12 +8,12 @@ body {
 }
 
 .flc-mapContainer {
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
 }
 
 .flc-mapPanel {
     width: 100%;
-    height: 100%;
+    height: 90%;
     border: 1px solid black;
 }
