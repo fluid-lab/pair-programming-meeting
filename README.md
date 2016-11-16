@@ -8,6 +8,8 @@
 
 - `src/js/leaflet-infusion.js`: a basic Infusion component that we'll build on. Uses the [Leaflet](http://leafletjs.com/) mapping library and [CARTO Basemaps Service](https://carto.com/location-data-services/basemaps/).
 
+- `src/css/leaflet-infusion.css`: starter CSS file
+
 - `src/json/ocadBuildings.json`: a JSON data file containing the longitude and latitude of buildings on the OCAD campus. Some of them also contain building boundaries expressed as arrays of latitude/longitude points. Information taken from the map at http://www.ocadu.ca/Assets/content/about/Campus+map+and+building+list.jpg.
 
 ## The Programming Task
