@@ -11,10 +11,6 @@ fluid.defaults("fluid.leaflet.map", {
            initializeMapPanel: {
                funcName: "fluid.leaflet.map.initializeMapPanel",
                args: ["{that}"]
-           },
-           panTo: {
-               this: "{that}.map",
-               "method": "panTo"
            }
        },
        listeners: {
