@@ -1,3 +1,6 @@
+/*global fluid, L */
+
+
 fluid.defaults("fluid.leaflet.locations", {
     gradeNames: ["fluid.modelComponent"],
     model: {
@@ -73,23 +76,27 @@ fluid.defaults("fluid.leaflet.locations", {
     }
 });
 
-// TODO: this only approximates the centre
-// TODO: calculation should be average of minimum and maximum
+fluid.leaflet.locations.getMinMaxAverage = function (numbers) {
+    var min = Math.min.apply(Math.min, numbers);
+    var max = Math.min.apply(Math.max, numbers);
+    return (min + max) / 2;
+}
+
 fluid.leaflet.locations.calculateCentre = function (locations) {
-    var averageLat = 0;
-    var averageLong = 0;
-    var numLocations = 0;
-    fluid.each(locations, function(location) {
-        averageLat = averageLat + location.latitude;
-        averageLong = averageLong + location.longitude;
-        numLocations++;
-    });
-    averageLat = averageLat / numLocations;
-    averageLong = averageLong / numLocations;
-    console.log({
-        latitude: averageLat,
-        longitude: averageLong
-    });
+    var latitudes = fluid.getMembers(fluid.values(locations), "latitude");
+
+    var longitudes = fluid.getMembers(fluid.values(locations), "longitude");
+
+    // TODO: should create a common function for this manipulation
+    var minLatitude = Math.min.apply(Math.min, latitudes);
+    var maxLatitude = Math.max.apply(Math.max, latitudes);
+    
+    var minLongitude = Math.min.apply(Math.min, longitudes);
+    var maxLongitude = Math.max.apply(Math.max, longitudes);
+    
+    var averageLat = (minLatitude + maxLatitude) / 2;
+    var averageLong = (minLongitude + maxLongitude) / 2;
+    
     return {
         latitude: averageLat,
         longitude: averageLong
@@ -145,11 +152,13 @@ fluid.defaults("fluid.leaflet.map", {
 
 fluid.leaflet.map.addLocations = function (leafletMap, locations) {
 
-    fluid.each(locations, function (location) {
+    fluid.each(locations, function (location, locationName) {
         // Add a point for each location
-        // console.log(location);
-        L.marker([location.latitude, location.longitude]).addTo(leafletMap);
-
+        
+        var currentMarker = L.marker([location.latitude, location.longitude]);
+        currentMarker.bindPopup("<p><strong>" + locationName + "</strong></p><p>" + location.address + "</p>").openPopup();    
+            
+        currentMarker.addTo(leafletMap);
     });
 
 };
